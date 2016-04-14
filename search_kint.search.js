@@ -1,4 +1,10 @@
+/**
+ * @file
+ * Add functionality to be able to search though one or more kint dumps.
+ */
+
 (function ($) {
+  'use strict';
   Drupal.behaviors.searchKintSearch = {
     attach: function (context, settings) {
 
@@ -16,9 +22,9 @@
           form   += '    <select class="form-select" name="search-option">';
           form   += '      <option value="all">' + Drupal.t('Search all') + '</option>';
           // For each kint.
-          $(kint).each(function(i) {
+          $(kint).each(function (i) {
             i++;
-            form += '      <option value="'+ i +'">' + Drupal.t('Search kint') + ' #'+ i +'</option>';
+            form += '      <option value="' + i + '">' + Drupal.t('Search kint') + ' #' + i + '</option>';
           });
           form   += '    </select>';
         }
@@ -32,11 +38,12 @@
       }
 
       // On submit execute the following.
-      $('form#search-kint').submit(function(e) {
+      $('form#search-kint').submit(function (e) {
         // Remove result and classes from previous query.
         $('.kint-query-result').removeClass('kint-query-result');
         $('.kint-parent.kint-show').removeClass('kint-show');
-        $('.search-kint-results').html('');
+        var $search_kint_result = $('.search-kint-results');
+        $search_kint_result.html('');
 
         // Get query value and option value as variables.
         var query = $('input[name=search-query]', this).val();
@@ -46,8 +53,8 @@
         if (query) {
           var search_kint;
           // Check if we're just trying to look through a single kint.
-          if (option && option != 'all') {
-            search_kint = $('.kint').eq(option-1);
+          if (option && option !== 'all') {
+            search_kint = $('.kint').eq(option - 1);
           }
           else {
             // Let's search through all of them!
@@ -56,7 +63,7 @@
 
           // Find all elements with the query.
           var count = 0;
-          $('dt:contains('+ query +')', search_kint).each(function(i) {
+          $('dt:contains(' + query + ')', search_kint).each(function () {
             count++;
 
             // Add result class.
@@ -67,10 +74,10 @@
 
           });
           // Show result overview.
-          $('.search-kint-results').html(Drupal.formatPlural(count, 'Found 1 element', 'Found @count elements'));
+          $search_kint_result.html(Drupal.formatPlural(count, 'Found 1 element', 'Found @count elements'));
         }
         else {
-          $('.search-kint-results').html(Drupal.t('Empty query'));
+          $search_kint_result.html(Drupal.t('Empty query'));
         }
 
         // Prevent the form from being submitted.
