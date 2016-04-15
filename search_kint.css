@@ -1,4 +1,4 @@
-.kint .kint-query-result dt {
+.kint .kint-query-result > dt {
   background: #625c43;
   color: #b2b2b2;
 }
