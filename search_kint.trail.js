@@ -56,7 +56,7 @@
         var label = $current.find('> dt dfn').text().trim();
 
         // If uppermost dl set label to $args so it gets included.
-        if(!$current.parents('dl').length) {
+        if (!$current.parents('dl').length) {
           label = '$args';
         }
 
