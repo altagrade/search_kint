@@ -36,7 +36,7 @@
               return true;
             }
             var prevItem = pathItems[index - 1];
-            if (prevItem.type === 'array') {
+            if (prevItem.type === 'array' || prevItem.type === 'protectedarray') {
               path += '[' + item.label + ']';
             }
             else if (prevItem.type.substring(0, 7) === 'object ') {
