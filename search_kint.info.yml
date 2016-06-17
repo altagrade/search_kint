@@ -3,3 +3,5 @@ description: Allows searching through the Kint dump.
 package: Custom
 type: module
 core: 8.x
+dependencies:
+  - kint
