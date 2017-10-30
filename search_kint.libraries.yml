@@ -5,6 +5,7 @@ search_kint:
     search_kint.trail.js: {}
   dependencies:
       - core/jquery
+      - core/jquery.once
   css:
     theme:
       search_kint.css: {}
