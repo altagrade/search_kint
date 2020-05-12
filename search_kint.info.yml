@@ -2,6 +2,7 @@ name: Search kint
 description: Allows searching through the Kint dump.
 package: Development
 type: module
-core: ^8 || ^9 
+core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - drupal:kint
