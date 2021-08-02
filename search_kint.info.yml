@@ -1,4 +1,4 @@
-name: Search kint
+name: Search Kint for Drupal 9
 description: Allows searching through the Kint dump.
 package: Development
 type: module

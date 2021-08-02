@@ -1,11 +1,12 @@
 search_kint:
   version: 1
+  css:
+    theme:
+      search_kint.css: {}
   js:
     search_kint.search.js: {}
     search_kint.trail.js: {}
   dependencies:
       - core/jquery
       - core/jquery.once
-  css:
-    theme:
-      search_kint.css: {}
+
