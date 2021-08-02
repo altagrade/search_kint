@@ -9,7 +9,7 @@
     attach: function (context, settings) {
 
       var first = true;
-      $('.kint dt', context).once('trail').each(function () {
+      $('.kint-rich dt', context).once('trail').each(function () {
 
         if (first) {
           first = false;

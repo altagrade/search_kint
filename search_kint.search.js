@@ -9,7 +9,7 @@
     attach: function (context, settings) {
 
       // Define kint root.
-      var kint = $('.kint:not(".processed")');
+      var kint = $('.kint-rich:not(".processed")');
 
       // Check if there is a kint.
       if ($(kint).addClass('processed').length > 0) {
@@ -40,8 +40,8 @@
       // On submit execute the following.
       $('form#search-kint').submit(function (e) {
         // Remove result and classes from previous query.
-        $('.kint-query-result').removeClass('kint-query-result');
-        $('.kint-parent.kint-show').removeClass('kint-show');
+        $('.kint-rich-query-result').removeClass('kint-query-result');
+        $('.kint-rich-parent.kint-rich-show').removeClass('kint-show');
         var $search_kint_result = $('.search-kint-results');
         $search_kint_result.html('');
 
@@ -54,11 +54,11 @@
           var search_kint;
           // Check if we're just trying to look through a single kint.
           if (option && option !== 'all') {
-            search_kint = $('.kint').eq(option - 1);
+            search_kint = $('.kint-rich').eq(option - 1);
           }
           else {
             // Let's search through all of them!
-            search_kint = $('.kint');
+            search_kint = $('.kint-rich');
           }
 
           // Find all elements with the query.
@@ -70,7 +70,7 @@
             $(this).parent().addClass('kint-query-result');
 
             // Expand parents until the query result is layered open before the user.
-            $(this).parentsUntil('.kint', 'dd').prev().addClass('kint-show');
+            $(this).parentsUntil('.kint-rich', 'dd').prev().addClass('kint-show');
 
           });
           // Show result overview.
